@@ -20,7 +20,7 @@ Engineering teams spend an estimated **30-40% of their time on non-coding activi
 
 Platform teams, meanwhile, face endless requests for custom workflows, organizational context, and specialized tooling that can't be adequately served by generic infrastructure abstractions alone.
 
-### This Isn't a Tooling Problem—It's a Knowledge Transfer Problem
+### This Isn't a Tooling Problem-It's a Knowledge Transfer Problem
 
 Traditional Internal Developer Platforms (IDPs) excel at infrastructure automation and self-service provisioning. They've successfully:
 - Abstracted Kubernetes complexity
@@ -36,7 +36,7 @@ Creating a self-service Golden Path represented by a front-end form on your deve
 
 Claude Skills represent a new architectural pattern for building specialized AI agents. At their core, **Skills are modular folders containing instructions, scripts, reference materials, and organizational context** that Claude dynamically loads when relevant to a task.
 
-Think of them as **onboarding packages for AI**—teaching Claude your organization's specific workflows, standards, and expertise.
+Think of them as **onboarding packages for AI**-teaching Claude your organization's specific workflows, standards, and expertise.
 
 ### The Transformative Insight
 
@@ -54,7 +54,7 @@ Skills use a **progressive disclosure model**:
 
 **Crucially, Skills introduce the ability to embed deterministic, executable code within Generative AI-orchestrated workflows.**
 
-While Claude's reasoning is probabilistic—understanding context, making intelligent decisions, adapting to scenarios—**Skills contain scripts, validators, templates, and automation tools that execute with perfect consistency every time**.
+While Claude's reasoning is probabilistic-understanding context, making intelligent decisions, adapting to scenarios-**Skills contain scripts, validators, templates, and automation tools that execute with perfect consistency every time**.
 
 #### How This Works in Practice
 
@@ -178,7 +178,7 @@ When coding the service, Claude references your Testing Skill:
 - Examples of well-structured test suites from your codebase
 - Scripts for generating test data that matches your domain models
 
-**Developers don't just get generic testing advice—they get guidance shaped by your actual architecture and testing requirements.**
+**Developers don't just get generic testing advice-they get guidance shaped by your actual architecture and testing requirements.**
 
 Test coverage improves dramatically because the barrier to writing good tests decreases.
 
@@ -324,11 +324,11 @@ Modern developers expect:
 
 ## Preparing for the Agentic Future
 
-The transformation described in this document—Skills-enabled IDPs that embed organizational context—addresses today's developer productivity challenge. But it also solves an emerging problem that will define the next era of software development: **how to provide context at scale for autonomous AI agents**.
+The transformation described in this document-Skills-enabled IDPs that embed organizational context-addresses today's developer productivity challenge. But it also solves an emerging problem that will define the next era of software development: **how to provide context at scale for autonomous AI agents**.
 
 ### The Shift to Agentic Development
 
-Software development is evolving beyond AI-assisted coding. The next wave isn't just developers using AI tools—it's **autonomous AI agents orchestrating entire workflows**. These agents won't merely suggest code completions; they'll:
+Software development is evolving beyond AI-assisted coding. The next wave isn't just developers using AI tools-it's **autonomous AI agents orchestrating entire workflows**. These agents won't merely suggest code completions; they'll:
 
 - Architect complete systems from requirements
 - Provision and configure infrastructure autonomously
@@ -506,7 +506,7 @@ When agent swarms become commonplace (and they will), organizations will be divi
 - Can't trust agents with production systems
 - Remain dependent on manual processes
 
-**The time to build Skills infrastructure is now—while the gap is still bridgeable.**
+**The time to build Skills infrastructure is now-while the gap is still bridgeable.**
 
 ---
 

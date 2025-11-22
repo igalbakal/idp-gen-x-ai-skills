@@ -251,7 +251,7 @@ This is a framework and reference architecture. Adapt it to your organization's 
 
 ## ⚡ The Bottom Line
 
-The software industry has plateaued on developer productivity despite massive tooling investments. The bottleneck isn't infrastructure automation—it's **knowledge transfer and organizational context**.
+The software industry has plateaued on developer productivity despite massive tooling investments. The bottleneck isn't infrastructure automation-it's **knowledge transfer and organizational context**.
 
 Skills-enabled IDPs provide a breakthrough mechanism for packaging and distributing expertise at scale. Organizations that move quickly will gain significant competitive advantages in talent efficiency, time-to-market, and engineering scalability.
 

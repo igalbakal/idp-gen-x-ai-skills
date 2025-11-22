@@ -164,7 +164,7 @@ BUT... developer immediately needs to customize
 | **Compliance** | Post-hoc checking, review gates | Built-in validation, policy-as-code |
 | **Discoverability** | Search docs, browse templates | AI suggests relevant patterns |
 
-**Key Insight:** Skills don't replace CI/CD platforms—they augment them with intelligent generation and organizational context.
+**Key Insight:** Skills don't replace CI/CD platforms-they augment them with intelligent generation and organizational context.
 
 ---
 

@@ -1099,7 +1099,7 @@ if validation.passed:
 
 ## Integration with Existing IDPs
 
-Skills don't replace existing IDP components—they augment them with intelligent orchestration.
+Skills don't replace existing IDP components-they augment them with intelligent orchestration.
 
 ### Integration Architecture
 
