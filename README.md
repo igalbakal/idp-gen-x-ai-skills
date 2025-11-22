@@ -26,6 +26,17 @@ Current platforms excel at provisioning resources and running pipelines, but str
 
 ## 📚 Documentation
 
+### 0. [EXECUTIVE BRIEF](EXECUTIVE_BRIEF.md) - Quick Overview for Decision Makers
+*10-minute read for busy executives and engineering leaders*
+
+- The productivity crisis and why traditional IDPs fall short
+- What Skills are and the hybrid AI-deterministic breakthrough
+- Real transformation examples with quantified ROI
+- Strategic positioning for the agentic future
+- Clear investment case and next steps
+
+**Start here if:** You need a concise overview before diving into detailed documentation
+
 ### 1. [VISION](01-VISION.md) - The Opportunity and Transformation
 *15-minute read for executives and decision makers*
 
@@ -72,9 +83,9 @@ Current platforms excel at provisioning resources and running pipelines, but str
 ## 🚀 Quick Start Guides
 
 ### For Executives
-1. Read [VISION](01-VISION.md) - understand the opportunity
-2. Review success metrics in [IMPLEMENTATION GUIDE](04-IMPLEMENTATION-GUIDE.md)
-3. Evaluate ROI and competitive advantages
+1. Read [EXECUTIVE BRIEF](EXECUTIVE_BRIEF.md) - concise overview with ROI (10 min)
+2. Optionally read [VISION](01-VISION.md) for deeper context (15 min)
+3. Review success metrics in [IMPLEMENTATION GUIDE](04-IMPLEMENTATION-GUIDE.md)
 4. **Decision point:** Approve POC or request more information
 
 ### For Architects

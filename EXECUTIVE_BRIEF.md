@@ -2,8 +2,6 @@
 
 > **An executive guide to eliminating the knowledge transfer bottleneck and positioning your organization for the agentic future**
 
-[![Download PDF](https://img.shields.io/badge/PDF-Download-blue)]() [![Share](https://img.shields.io/badge/Share-Article-green)]()
-
 ---
 
 ## The $10B Productivity Paradox
