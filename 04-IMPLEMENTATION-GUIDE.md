@@ -71,71 +71,14 @@ Existing Shared Libraries (Old)
 Current Infrastructure
 ```
 
-### Week-by-Week Breakdown
+### Phase 1 Breakdown (Weeks 1-4)
 
-#### Week 1: Infrastructure Setup
-
-**Activities:**
-- Set up GCP project and configure IAM
-- Deploy Cloud SQL (PostgreSQL) for metadata
-- Configure Cloud Storage for Skills repository
-- Set up Memorystore (Redis) for caching
-- Configure Cloud Build triggers
-
-**Team:** Platform engineers (2), DevOps engineer (1)
-
-**Deliverables:**
-- GCP infrastructure operational
-- Basic networking and security configured
-- Development environment ready
-
-#### Week 2: Skills Engine MVP
-
-**Activities:**
-- Implement basic Skills Engine
-- Create API Gateway with authentication
-- Build Skills Loader with progressive disclosure
-- Implement basic Claude API integration
-- Set up monitoring and logging
-
-**Team:** Backend engineers (2), AI/ML engineer (1)
-
-**Deliverables:**
-- Skills Engine can load and execute basic Skills
-- API endpoints functional
-- Basic observability in place
-
-#### Week 3: First Skill Creation
-
-**Activities:**
-- Create gcp-nodejs-cicd Skill v1.0
-- Implement Node.js build templates
-- Add basic security scanning (Snyk)
-- Create Kubernetes deployment templates
-- Write Skill documentation
-
-**Team:** Platform engineers (2), Security engineer (1)
-
-**Deliverables:**
-- Working gcp-nodejs-cicd Skill
-- Example pipelines generated successfully
-- Documentation complete
-
-#### Week 4: Pilot Deployment
-
-**Activities:**
-- Select 3 pilot services (low risk, well-understood)
-- Generate Skills-based pipelines for pilots
-- Deploy to dev environment
-- Run comparison tests (performance, reliability, security)
-- Collect feedback from pilot teams
-
-**Team:** Full team + 3 pilot development teams
-
-**Deliverables:**
-- 3 services with Skills-generated pipelines
-- Performance comparison data
-- Pilot team feedback
+| Week | Focus | Key Activities | Team | Deliverables |
+|------|-------|----------------|------|--------------|
+| 1 | GCP Setup | GCP project, Cloud SQL, Cloud Storage, Memorystore, Cloud Build | 2 platform engineers, 1 DevOps | GCP infrastructure operational |
+| 2 | Skills Engine | API Gateway, Skills Loader, Claude API integration, monitoring | 2 backend engineers, 1 AI/ML | Skills Engine MVP functional |
+| 3 | First Skill | Create gcp-nodejs-cicd v1.0, templates, security scanning | 2 platform engineers, 1 security | Working gcp-nodejs-cicd Skill |
+| 4 | Pilot | Select 3 services, generate pipelines, deploy, test, collect feedback | Full team + 3 pilot teams | 3 services with Skills pipelines |
 
 ### Success Criteria
 
@@ -181,72 +124,14 @@ Platform Team + Senior Developers
 Enhanced Skills Repository
 ```
 
-### Week-by-Week Breakdown
+### Phase 2 Breakdown (Weeks 5-8)
 
-#### Week 5: Pattern Mining
-
-**Activities:**
-- Automated analysis of existing 500+ pipelines
-- Identify 20-30 common patterns
-- Document pattern frequency and usage
-- Interview platform team (10 structured interviews)
-- Capture "why" behind decisions
-
-**Team:** Data analyst (1), Platform engineers (2), Platform team members (interviews)
-
-**Deliverables:**
-- Pattern analysis report
-- Interview transcripts and insights
-- Priority list for Skill creation
-
-#### Week 6: Knowledge Codification
-
-**Activities:**
-- Convert patterns into 15-20 new Skills
-- Create domain-specific Skills (payment, ML, data)
-- Add organizational context to existing Skills
-- Build validators for compliance
-- Create comprehensive examples
-
-**Team:** Platform engineers (3), Domain experts (4)
-
-**Deliverables:**
-- 15-20 new Skills created
-- Enhanced existing Skills
-- Validation logic implemented
-
-#### Week 7: Skills Review & Testing
-
-**Activities:**
-- Platform team reviews all Skills
-- Security team validates security Skills
-- Test Skills with synthetic workloads
-- Create Skills catalog with search
-- Build training materials
-
-**Team:** Full team + Security team + Domain teams
-
-**Deliverables:**
-- All Skills reviewed and approved
-- Skills catalog published
-- Training materials ready
-
-#### Week 8: Documentation & Preparation
-
-**Activities:**
-- Create migration playbook
-- Document Skills usage patterns
-- Build Skills discovery tools
-- Prepare communication plan
-- Set up adoption tracking dashboard
-
-**Team:** Technical writers (2), Platform engineers (2)
-
-**Deliverables:**
-- Migration playbook complete
-- Skills catalog with examples
-- Communication materials
-- Tracking dashboard operational
+| Week | Focus | Key Activities | Team | Deliverables |
+|------|-------|----------------|------|--------------|
+| 5 | Pattern Mining | Analyze 500+ pipelines, identify patterns, interview platform team | 1 data analyst, 2 platform engineers | Pattern analysis report, priority list |
+| 6 | Codification | Convert patterns to 15-20 Skills, domain Skills, validators | 3 platform engineers, 4 domain experts | 15-20 new Skills created |
+| 7 | Review & Testing | Platform/security reviews, synthetic testing, catalog, training | Full team + Security + Domain teams | Skills reviewed, catalog published |
+| 8 | Documentation | Migration playbook, discovery tools, communication, tracking | 2 technical writers, 2 platform engineers | Migration playbook, dashboard operational |
 
 ### Success Criteria
 
@@ -314,73 +199,14 @@ stateDiagram-v2
 
 ### Week-by-Week Breakdown
 
-#### Weeks 9-10: 10% Migration (25 services)
+### Phase 3 Breakdown (Weeks 9-16)
 
-**Activities:**
-- Select 25 low-risk services
-- Generate Skills-based pipelines
-- Deploy to dev, run comparison tests
-- Deploy to staging, monitor for 1 week
-- Deploy to production with feature flags
-- Track metrics vs baseline
-
-**Team:** Platform engineers (2), Migration coordinator (1), Service teams (as needed)
-
-**Deliverables:**
-- 25 services migrated (10% target)
-- Comparison metrics documented
-- Issues identified and resolved
-
-#### Weeks 11-12: 25% Migration (63 services total)
-
-**Activities:**
-- Select next 38 services (higher complexity)
-- Apply learnings from first 25
-- Parallel migration of multiple services
-- Enhanced monitoring and alerting
-- Document migration patterns
-- Conduct training sessions
-
-**Team:** Platform engineers (3), Migration coordinator (1), Service teams
-
-**Deliverables:**
-- 63 services migrated (25% target)
-- Migration patterns documented
-- Training completed for 50+ developers
-
-#### Weeks 13-14: 50% Migration (125 services total)
-
-**Activities:**
-- Select next 62 services (mix of complexity)
-- Establish self-service migration process
-- Platform team shifts to support role
-- Automated migration tooling
-- Community office hours
-- Success stories documentation
-
-**Team:** Platform engineers (2), Support engineers (2), Service teams
-
-**Deliverables:**
-- 125 services migrated (50% target)
-- Self-service migration process
-- Office hours established
-
-#### Weeks 15-16: 75% Migration (188 services total)
-
-**Activities:**
-- Migrate next 63 services
-- Focus on holdout teams
-- Address edge cases and exceptions
-- Optimize Skills based on feedback
-- Plan for final 25% push
-- Executive progress report
-
-**Team:** Full platform team, Service teams
-
-**Deliverables:**
-- 188 services migrated (75% target)
-- Edge case Skills created
-- Optimization improvements deployed
+| Weeks | Milestone | Services | Key Activities | Team | Deliverables |
+|-------|-----------|----------|----------------|------|--------------|
+| 9-10 | 10% | 25 | Select low-risk services, generate pipelines, deploy dev/staging/prod, track metrics | 2 platform, 1 coordinator, service teams | 25 migrated, comparison metrics |
+| 11-12 | 25% | 63 total | Higher complexity, parallel migration, training sessions | 3 platform, 1 coordinator, service teams | 63 migrated, patterns documented |
+| 13-14 | 50% | 125 total | Self-service process, automated tooling, office hours | 2 platform, 2 support, service teams | 125 migrated, self-service established |
+| 15-16 | 75% | 188 total | Holdout teams, edge cases, optimize Skills, exec report | Full platform team, service teams | 188 migrated, edge cases handled |
 
 ### Safety Mechanisms
 
@@ -442,74 +268,14 @@ Cloud Build Execution
 
 ### Week-by-Week Breakdown
 
-#### Weeks 17-18: Final Push to 90%
+### Phase 4 Breakdown (Weeks 17-24)
 
-**Activities:**
-- Migrate remaining 38 services (226 total)
-- Focus on complex edge cases
-- Create custom Skills for unique services
-- Platform team provides direct support
-- Document all exceptions
-- Celebrate 90% milestone
-
-**Team:** Full platform team, Service teams, Domain experts
-
-**Deliverables:**
-- 90%+ of services migrated
-- Exception documentation
-- Custom Skills for edge cases
-
-#### Weeks 19-20: Legacy Pipeline Archival
-
-**Activities:**
-- Archive old pipelines (read-only repository)
-- Update documentation to Skills-first
-- Decommission old pipeline infrastructure
-- Redirect support channels
-- Update onboarding materials
-- Communication to organization
-
-**Team:** Platform engineers (2), Documentation team (1)
-
-**Deliverables:**
-- Legacy pipelines archived
-- Documentation updated
-- Decommissioning complete
-
-#### Weeks 21-22: Skills Center of Excellence
-
-**Activities:**
-- Establish Skills governance model
-- Create Skills contribution process
-- Set up Skills review board
-- Implement Skills testing framework
-- Launch Skills marketplace/catalog
-- Train Skills contributors
-
-**Team:** Platform lead, Domain team leads, Security lead
-
-**Deliverables:**
-- Governance model established
-- Contribution process documented
-- Skills review board operational
-
-#### Weeks 23-24: Optimization & Future Planning
-
-**Activities:**
-- Performance tuning based on 24 weeks data
-- Skills consolidation and cleanup
-- Roadmap for next capabilities
-- Executive results presentation
-- Lessons learned documentation
-- Team celebration
-
-**Team:** Full team
-
-**Deliverables:**
-- Optimization improvements
-- Roadmap for infrastructure, testing, etc.
-- Executive report
-- Lessons learned document
+| Weeks | Focus | Key Activities | Team | Deliverables |
+|-------|-------|----------------|------|--------------|
+| 17-18 | 90% Migration | Migrate remaining 38 services, edge cases, custom Skills, celebrate | Full platform, service teams, domain experts | 226 services migrated (90%+) |
+| 19-20 | Archival | Archive legacy pipelines, update docs, decommission old infrastructure | 2 platform, 1 documentation | Legacy pipelines archived |
+| 21-22 | Center of Excellence | Governance model, contribution process, review board, testing framework | Platform lead, domain leads, security lead | Governance established |
+| 23-24 | Optimization | Performance tuning, Skills cleanup, roadmap, exec presentation, lessons learned | Full team | Optimization complete, roadmap defined |
 
 ### Maintenance Model
 

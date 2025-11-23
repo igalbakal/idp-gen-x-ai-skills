@@ -267,89 +267,12 @@ client = get_claude_client(
 
 ### Skills Update Lifecycle
 
-#### When Platform Team Updates a Skill
+Skills updates distribute via Claude API (instant) or Git (automated pull). Platform teams monitor versions and can enforce updates for critical security patches.
 
-```mermaid
-sequenceDiagram
-    participant Platform as Platform Team
-    participant Git as Skills Git Repo
-    participant API as Claude API
-    participant Devs as Developer Machines
-    participant Notif as Notification System
-    
-    Platform->>Git: Commit Skill v2.1.0
-    Git->>Git: CI/CD validates Skill
-    
-    par Upload to API
-        Git->>API: Upload Skill v2.1.0
-        API-->>Devs: Instantly available (API users)
-    and Update Notifications
-        Git->>Notif: Trigger notification
-        Notif->>Devs: Slack/Email: "gcp-nodejs-cicd v2.1.0 released"
-    end
-    
-    alt Using Claude API
-        Devs->>API: Next API call
-        API-->>Devs: Uses v2.1.0 automatically
-    else Using Claude Code (Filesystem)
-        Devs->>Devs: Shell auto-update or manual git pull
-        Devs->>Git: git pull origin main
-        Git-->>Devs: Skills updated to v2.1.0
-    end
-```
-
-#### Ensuring Developer Skills are Current
-
-**Monitoring & Compliance:**
-
-```bash
-# Platform team can check Skills versions in use
-platform-cli audit skills-versions
-
-Output:
-Developer Skill Versions:
-├── jane@company.com
-│   ├── gcp-nodejs-cicd: v2.1.0 ✓ (current)
-│   └── security-scanning: v1.5.2 ✓ (current)
-├── john@company.com
-│   ├── gcp-nodejs-cicd: v2.0.0 ⚠️ (outdated)
-│   └── security-scanning: v1.5.0 ⚠️ (security update available)
-└── alice@company.com
-│   └── Using Claude API ✓ (always current)
-
-Action Required:
-- Notify john@company.com to update Skills
-- Security-critical update available for 2 developers
-```
-
-**Enforcement Options:**
-
-**Option 1: Soft Enforcement (Notifications)**
-```bash
-# Platform sends reminders
-./notify-outdated-skills.sh
-
-# Developers receive:
-"Your gcp-nodejs-cicd Skill is outdated (v2.0.0).
-Update recommended: cd ~/.claude/skills/org-skills && git pull"
-```
-
-**Option 2: Hard Enforcement (Validation)**
-```bash
-# In generated pipelines, add version check
-if [ "$(get-skill-version)" != "2.1.0" ]; then
-  echo "ERROR: This pipeline requires gcp-nodejs-cicd v2.1.0+"
-  echo "Update: cd ~/.claude/skills/org-skills && git pull"
-  exit 1
-fi
-```
-
-**Option 3: Migration to API (Eliminate Problem)**
-```bash
-# Recommended long-term
-# Migrate developers from filesystem to API
-# Zero maintenance, always current
-```
+**Distribution Models:**
+- **Claude API:** Instant, zero maintenance
+- **Filesystem:** Automated git pull, requires monitoring
+- **Enforcement:** Soft (notifications) or hard (pipeline validation)
 
 ---
 
@@ -513,109 +436,15 @@ Existing IDP components that Skills integrate with:
 
 ## Hybrid AI-Deterministic Architecture
 
-The breakthrough innovation of Skills is combining probabilistic AI reasoning with deterministic code execution.
+Skills combine **probabilistic AI reasoning** (understands intent, analyzes context, selects patterns) with **deterministic code execution** (validates policies, enforces compliance, runs security scans).
 
-```mermaid
-flowchart LR
-    subgraph "Probabilistic AI Layer"
-        Intent[Understand Intent]
-        Analyze[Analyze Context]
-        Select[Select Patterns]
-        Parameterize[Parameterize Solution]
-    end
-    
-    subgraph "Deterministic Code Layer"
-        Templates[Validated Templates]
-        Validators[Policy Validators]
-        Scripts[Automation Scripts]
-        Scanners[Security Scanners]
-    end
-    
-    subgraph "Output"
-        Pipeline[Production-Ready Pipeline]
-        Compliant[Compliance Guaranteed]
-        Auditable[Fully Auditable]
-    end
-    
-    Request[Developer Request] --> Intent
-    Intent --> Analyze
-    Analyze --> Select
-    Select --> Parameterize
-    
-    Parameterize --> Templates
-    Templates --> Validators
-    Validators --> Scripts
-    Scripts --> Scanners
-    
-    Scanners --> Pipeline
-    Pipeline --> Compliant
-    Compliant --> Auditable
-    
-    style Request fill:#e1f5ff
-    style Intent fill:#e1f5ff
-    style Analyze fill:#e1f5ff
-    style Select fill:#e1f5ff
-    style Parameterize fill:#e1f5ff
-    style Templates fill:#ffe1e1
-    style Validators fill:#ffe1e1
-    style Scripts fill:#ffe1e1
-    style Scanners fill:#ffe1e1
-    style Pipeline fill:#e1ffe1
-    style Compliant fill:#e1ffe1
-    style Auditable fill:#e1ffe1
-```
+**See [01-VISION.md](01-VISION.md) for detailed explanation of this architecture.**
 
-### The Critical Balance
-
-#### Probabilistic Layer (AI Reasoning)
-
-**What AI Does:**
-- Understands developer intent from natural language
-- Analyzes service context (language, dependencies, architecture)
-- Selects appropriate patterns from organizational knowledge
-- Generates service-specific parameterization
-
-**Example:**
-```
-Developer: "I need a pipeline for my payment API"
-
-AI Reasoning:
-✓ Understands: payment service = high security requirements
-✓ Infers: likely needs PCI-compliant patterns
-✓ Considers: organization's standard Node.js build process
-✓ Suggests: appropriate testing strategies
-```
-
-#### Deterministic Layer (Executable Code)
-
-**What Deterministic Code Does:**
-- Validates against security policies (Policy-as-Code)
-- Enforces compliance requirements (SOC2, HIPAA, PCI)
-- Executes proven deployment strategies (blue-green, canary)
-- Runs security scans with defined thresholds
-
-**Example:**
-```
-Deterministic Execution:
-✓ Enforces: mandatory Snyk scan with 0 critical vulnerabilities
-✓ Validates: secrets stored in Secret Manager, not code
-✓ Ensures: production deployments require approval
-✓ Guarantees: rollback procedures are included
-```
-
-### Why This Matters
-
-**Output Characteristics:**
-- **Feels custom-generated** - AI adapts to specific context
-- **Provably compliant** - Deterministic validation ensures standards
-- **Fully auditable** - Every decision and validation logged
-- **Reliably reproducible** - Critical operations execute identically
-
-This hybrid approach makes Skills fundamentally different from pure AI code generation. Platform teams can confidently include Skills capabilities in their offerings because:
-- Security policies are enforced deterministically
-- Compliance validations run consistently
-- Deployment procedures execute reliably
-- All while developers experience natural language flexibility
+**Key Benefits:**
+- Feels custom-generated yet provably compliant
+- Fully auditable with reliable reproducibility
+- Security policies enforced deterministically
+- Natural language flexibility for developers
 
 ---
 

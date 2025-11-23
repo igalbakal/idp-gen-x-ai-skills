@@ -53,118 +53,24 @@ This proof-of-concept demonstrates the first Skills-based capability for Interna
 - Trivy (containers)
 - SonarQube (code quality)
 
-### Language Landscape Context
-
-While this POC targets TypeScript/JavaScript workloads (representing ~65% of modern software development), the Skills architecture is designed to be **language-agnostic**.
-
-**Most Prevalent Languages:**
-- **TypeScript/JavaScript (65%)**: Web frontends, Node.js backends, full-stack
-- **Java (45%)**: Enterprise backends, Spring Boot, Android
-- **Python (35%)**: ML/AI workloads, data processing, FastAPI
-- **Go (25%)**: Cloud-native services, infrastructure tools
-- **C#/.NET (20%)**: Enterprise applications, Azure-centric orgs
-
-The Node.js/Angular focus provides representative patterns for the majority case while enabling straightforward extension to other languages.
+**Note:** POC targets TypeScript/JavaScript (~65% of modern development) but Skills architecture is language-agnostic and extensible to Java, Python, Go, C#/.NET, etc.
 
 ---
 
 ## Current CI/CD Paradigms Analysis
 
-Before designing the Skills-based solution, we must understand why existing approaches fall short and how to migrate from them.
+**See [02-ARCHITECTURE.md](02-ARCHITECTURE.md) for detailed integration patterns.**
 
-### Paradigm 1: Template-Based Pipelines
+**Key Problems with Traditional Approaches:**
+- **Templates**: 100+ variants, maintenance nightmare, drift over time
+- **Shared Libraries**: Version hell, breaking changes, poor discoverability
+- **Golden Paths**: Form overload (40+ fields), rigid abstractions
 
-**The Spotify/Netflix Model:**
-
-```
-Centralized Template Repository
-├── base-pipeline.yaml (foundational template)
-├── node-service.yaml (extends base)
-├── angular-app.yaml (extends base)
-├── python-service.yaml (extends base)
-└── 100+ specialized variants...
-
-Developer Workflow:
-1. Copy template to new repository
-2. Search/replace placeholders
-3. Customize for specific needs
-4. Pipeline often works initially...
-5. ...but diverges over time
-```
-
-**Problems:**
-- **Template Explosion**: 100+ template variants, each slightly different
-- **Maintenance Nightmare**: Security updates require manually updating every repository
-- **Drift Over Time**: Teams customize templates, creating snowflakes
-- **No Enforcement**: Can't mandate adoption of updated practices
-- **Knowledge Silos**: Why certain patterns exist is lost
-
-### Paradigm 2: Pipeline-as-Code Libraries
-
-**Jenkins Shared Libraries / GitHub Reusable Workflows:**
-
-```
-shared-pipeline-library/
-├── vars/
-│   ├── buildNodeService.groovy
-│   ├── deployToGKE.groovy
-│   └── 50+ more functions...
-└── resources/
-    └── templates and configs
-
-Developer Pipeline:
-@Library('shared-pipeline@v2.4.1') _
-buildNodeService(
-  service: 'payment-api',
-  nodeVersion: '20'
-)
-```
-
-**Problems:**
-- **Version Hell**: Teams pin to different library versions
-- **Breaking Changes**: Updating library breaks 40% of pipelines
-- **Cognitive Load**: Developers need deep understanding of library DSL
-- **Poor Discoverability**: Which function? What parameters?
-- **Debugging Complexity**: Errors deep in library code are opaque
-
-### Paradigm 3: Golden Path / Paved Road
-
-**Backstage Software Templates:**
-
-```
-Service Creation Form:
-[Service Name: _____________]
-[Owner Team: ▼ Select Team]
-[Programming Language: ▼ Node.js]
-... 40 more fields ...
-[Generate Service]
-
-Result:
-✓ Repository created
-✓ Pipeline added
-BUT... developer immediately needs to customize
-```
-
-**Problems:**
-- **Form Overload**: 40+ fields = decision fatigue
-- **Rigid Abstraction**: Works for 80%, terrible for 20%
-- **False Completeness**: Pipeline exists but doesn't match needs
-- **Post-Generation Drift**: Developers customize, losing benefits
-
-### The Paradigm Shift: Skills-Based Approach
-
-**Old Paradigm → Skills-Based Paradigm**
-
-| Aspect | Traditional | Skills-Based |
-|--------|-------------|--------------|
-| **Knowledge Storage** | Templates, docs, tribal knowledge | Executable Skills with context |
-| **Customization** | Manual editing, copy-paste | AI-guided generation with guardrails |
-| **Updates** | Manual propagation, breaking changes | Skill versioning, backward compatibility |
-| **Learning Curve** | Read docs, ask seniors, trial-error | Conversational interface, natural language |
-| **Compliance** | Post-hoc checking, review gates | Built-in validation, policy-as-code |
-| **Discoverability** | Search docs, browse templates | AI suggests relevant patterns |
-
-**Key Insight:** Skills don't replace CI/CD platforms-they augment them with intelligent generation and organizational context.
+**Skills-Based Paradigm Shift:**
+- Knowledge in executable Skills vs. scattered docs
+- AI-guided generation vs. manual editing
+- Built-in compliance vs. post-hoc checking
+- Natural language vs. complex DSLs
 
 ---
 
