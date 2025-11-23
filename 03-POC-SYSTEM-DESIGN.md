@@ -8,6 +8,7 @@
 
 ## Table of Contents
 
+- [POC Component Legend](#poc-component-legend)
 - [POC Overview & Scope](#poc-overview--scope)
 - [Current CI/CD Paradigms Analysis](#current-cicd-paradigms-analysis)
 - [Functional Requirements](#functional-requirements)
@@ -22,6 +23,27 @@
 
 ---
 
+## POC Component Legend
+
+This design includes components for both **minimal POC validation** and **production-scale deployment**. To guide incremental implementation, components are annotated as follows:
+
+| Badge | Meaning | Purpose |
+|-------|---------|---------|
+| **`[POC-CORE]`** | Essential for proving the hybrid AI-deterministic concept | Must have for minimal POC |
+| **`[POC-OPTIONAL]`** | Enhances POC value but not required for initial validation | Nice to have for POC, adds polish |
+| **`[POC-SCALE]`** | Required for production scale, deferred for minimal POC | Build later when scaling |
+
+**Minimal POC Recommendation:** Focus exclusively on `[POC-CORE]` components for initial validation. This reduces development time from 24 weeks to 4-6 weeks while preserving the core architectural proof points.
+
+**Suggested POC Simplifications:**
+- **Data Layer**: SQLite or JSON files instead of PostgreSQL `[POC-SCALE]`, in-memory caching instead of Redis `[POC-SCALE]`
+- **Interfaces**: Single interface (Cline or CLI) instead of multiple `[POC-SCALE]`
+- **Security**: One scanner (Trivy) instead of full suite `[POC-SCALE]`
+- **Observability**: Basic logging instead of full telemetry stack `[POC-SCALE]`
+- **Deployment**: Dev environment only, skip staging/prod complexity `[POC-SCALE]`
+
+---
+
 ## POC Overview & Scope
 
 This proof-of-concept demonstrates the first Skills-based capability for Internal Developer Platforms: **intelligent CI/CD pipeline generation**. The POC focuses on modern cloud-native application delivery patterns while providing a migration path from existing pipeline paradigms.
@@ -29,29 +51,29 @@ This proof-of-concept demonstrates the first Skills-based capability for Interna
 ### Technology Stack
 
 **Application Frameworks:**
-- Node.js (Express, NestJS)
-- Angular (SPA/SSR)
+- Node.js (Express, NestJS) `[POC-CORE]`
+- Angular (SPA/SSR) `[POC-OPTIONAL]`
 
 **Cloud Platform:**
-- Google Cloud Platform
-- Cloud Build (CI/CD)
-- GKE (Container Orchestration)
-- Artifact Registry (Container Images)
-- Secret Manager (Secrets)
+- Google Cloud Platform `[POC-CORE]`
+- Cloud Build (CI/CD) `[POC-CORE]`
+- GKE (Container Orchestration) `[POC-CORE]`
+- Artifact Registry (Container Images) `[POC-CORE]`
+- Secret Manager (Secrets) `[POC-CORE]`
 
 **Developer Interfaces:**
-- Cline VS Code extension (with Claude Skills)
-- platform-cli utility
-- IDP web portal
-- API integrations
+- Cline VS Code extension (with Claude Skills) `[POC-CORE]`
+- platform-cli utility `[POC-OPTIONAL]` - Can skip one interface for minimal POC
+- IDP web portal `[POC-SCALE]` - Add when scaling beyond pilot
+- API integrations `[POC-SCALE]` - Add for programmatic access at scale
 
 **CI/CD Platform:**
-- Cloud Build with GitHub Actions integration capability
+- Cloud Build with GitHub Actions integration capability `[POC-CORE]`
 
 **Security Scanning:**
-- Snyk (dependencies)
-- Trivy (containers)
-- SonarQube (code quality)
+- Snyk (dependencies) `[POC-OPTIONAL]` - Nice to have but not critical for POC
+- Trivy (containers) `[POC-CORE]` - Keep at least one scanner
+- SonarQube (code quality) `[POC-SCALE]` - Add when enforcing quality standards at scale
 
 **Note:** POC targets TypeScript/JavaScript (~65% of modern development) but Skills architecture is language-agnostic and extensible to Java, Python, Go, C#/.NET, etc.
 
@@ -533,42 +555,89 @@ graph TB
 ### Layer Responsibilities
 
 **Developer Interface Layer:**
-- Multiple access patterns for different workflows
-- Consistent experience across interfaces
-- Context-aware suggestions
+- Cline IDE Extension `[POC-CORE]`
+- platform-cli `[POC-OPTIONAL]`
+- Web Portal `[POC-SCALE]`
+- REST API `[POC-SCALE]` - For programmatic access at scale
 
-**API Gateway Layer:**
-- Authentication and authorization
-- Rate limiting and throttling
-- Request routing and load balancing
+**API Gateway Layer:** `[POC-SCALE]`
+- Authentication and authorization - Use simple OAuth for POC
+- Rate limiting and throttling - Not needed for POC
+- Request routing and load balancing - Direct routing for POC
 
-**Skills Orchestration Layer:**
+**Skills Orchestration Layer:** `[POC-CORE]`
 - Natural language understanding
 - Skill discovery and loading
 - Context management
 - AI reasoning coordination
 
-**Generation & Validation Layer:**
-- Pipeline code generation
-- Policy validation
-- Template rendering
-- Compliance checking
+**Generation & Validation Layer:** `[POC-CORE]`
+- Pipeline code generation `[POC-CORE]`
+- Policy validation `[POC-OPTIONAL]` - Simple validation for POC
+- Template rendering `[POC-CORE]`
+- Compliance checking `[POC-SCALE]` - Add when enforcing compliance at scale
 
 **Data Layer:**
-- Relational data (PostgreSQL)
-- Caching (Redis)
-- Object storage (Cloud Storage)
+- PostgreSQL `[POC-SCALE]` - Use SQLite or JSON files for POC
+- Redis `[POC-SCALE]` - Use in-memory caching for POC
+- Cloud Storage `[POC-CORE]` - For Skills and artifacts
 
-**Integration Layer:**
-- GCP service integration
-- Third-party tool integration
-- Version control systems
+**Integration Layer:** `[POC-CORE]`
+- Cloud Build API `[POC-CORE]`
+- GKE API `[POC-CORE]`
+- Artifact Registry `[POC-CORE]`
+- Secret Manager `[POC-CORE]`
+- GitHub API `[POC-CORE]`
 
 **Observability Layer:**
-- Metrics collection
-- Log aggregation
-- Distributed tracing
-- Alerting
+- Cloud Monitoring `[POC-SCALE]` - Use basic logging for POC
+- Cloud Logging `[POC-CORE]` - Essential for debugging
+- Cloud Trace `[POC-SCALE]` - Skip distributed tracing for POC
+- Alerting `[POC-SCALE]` - Add when moving to production
+
+### Minimal POC Architecture Summary
+
+For rapid validation of the hybrid AI-deterministic concept, focus on this simplified architecture:
+
+**Core Components (4-6 weeks):**
+```
+Developer (Cline IDE) [POC-CORE]
+    ↓
+Simple Express API [POC-CORE]
+    ↓
+Skills Engine [POC-CORE]
+    ├── Claude API Integration
+    ├── Skill Loader (local filesystem)
+    ├── Template Renderer
+    └── Basic Validation
+    ↓
+Output: cloudbuild.yaml + K8s manifests
+    ↓
+GitHub → Cloud Build → GKE (dev) [POC-CORE]
+```
+
+**Data Storage (Minimal):**
+- Skills: Local filesystem or Cloud Storage
+- Session state: In-memory Map/object
+- Config: JSON files
+- Logs: Console + Cloud Logging
+
+**Deferred Components:**
+- PostgreSQL → Use SQLite or JSON files
+- Redis → Use in-memory caching
+- API Gateway → Direct API routing
+- Web Portal → Cline IDE only
+- Multi-scanner → Trivy only
+- Multi-environment → Dev only
+- Advanced observability → Basic logging
+
+**Success Criteria:**
+- Generate working pipeline from natural language in <30 seconds
+- Deploy 3 pilot services successfully to GKE dev
+- Prove time savings (5 days → 3 hours)
+- Validate Skill composability and reusability
+
+This minimal approach proves the core value proposition while deferring production-scale components for Phase 2+.
 
 ---
 
