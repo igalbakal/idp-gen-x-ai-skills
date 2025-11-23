@@ -6,80 +6,37 @@
 
 ## The $10B Productivity Paradox
 
-Your engineering teams are drowning. Despite billions invested in DevOps tooling, platform engineering, and golden paths, **developers still spend 30-40% of their time on non-coding activities**-configuring infrastructure, navigating organizational standards, and waiting for platform team support.
+Despite billions invested in DevOps tooling, **developers still spend 30-40% of their time on non-coding activities**. The bottleneck isn't infrastructure automation—it's knowledge transfer.
 
-The data is stark:
-- **5 days** to launch a new microservice (should take 3 hours)
-- **Platform teams** fielding 100+ support tickets weekly
-- **90% of code reviews** catching standards violations instead of logic issues
-- **Junior developers** taking months to become productive
+**The Problem:**
+- 5 days to launch a microservice (should take 3 hours)
+- Platform teams field 100+ support tickets weekly
+- 90% of code reviews catch standards violations vs. logic issues
+- Junior developers take months to become productive
 
-**The bottleneck isn't infrastructure automation alone. It's knowledge transfer.**
+Traditional IDPs automate the "what" and "how" but fail at the "why" and "in what context." Your golden paths are complex forms, documentation is scattered, and best practices live in senior engineers' heads.
 
-Traditional Internal Developer Platforms (IDPs) excel at the "what" and "how"-what to provision, how to deploy. But they fail catastrophically at the "why" and "in what context"-why your organization does it this way, what your specific standards are, how this fits your architecture.
+**Skills-enabled IDPs embed organizational expertise directly into AI-assisted workflows.**
 
-Your golden paths are forms with 15+ fields. Your documentation is scattered across Confluence, Slack, and tribal knowledge. Your best practices live in the heads of senior engineers who've become bottlenecks.
-
-**Skills-enabled IDPs solve this by embedding organizational expertise directly into developer workflows through AI-powered context at scale.**
-
-→ **[Deep dive into the problem and vision](01-VISION.md)** (15-min read)
+→ **[Deep dive](01-VISION.md)** (15-min read)
 
 ---
 
-## What Are Skills? The Technical Breakthrough
+## What Are Skills?
 
-**Skills are modular packages that combine probabilistic AI reasoning with deterministic code execution.**
+Skills are modular packages combining **probabilistic AI reasoning** with **deterministic code execution**—executable onboarding packages teaching AI your organization's workflows and standards.
 
-Think of them as **executable onboarding packages for AI**-teaching Claude (or any frontier LLM) your organization's specific workflows, standards, and expertise.
+**The Hybrid Architecture:**
+1. **AI Layer:** Understands intent, context, requirements (e.g., payment = PCI compliance)
+2. **Code Layer:** Enforces security scans, validates policies, ensures rollback procedures
+3. **Result:** Pipelines that feel custom but are provably compliant (15 minutes vs. 5 days)
 
-### The Hybrid Architecture
+**Impact:**
+- Developers: Natural language interaction, zero platform dependencies
+- Platform Teams: Predictable outcomes, 50%+ ticket reduction
+- Business: 84% faster time-to-production, 90% fewer violations
 
-```
-Developer: "Create a CI/CD pipeline for my payment API"
-
-┌─────────────────────────────────────────────────────┐
-│ AI Layer (Probabilistic)                            │
-│ ✓ Understands: payment = high security requirements │
-│ ✓ Infers: needs PCI-compliant patterns              │
-│ ✓ Considers: your standard Node.js build process    │
-└─────────────────────────────────────────────────────┘
-                         ▼
-┌─────────────────────────────────────────────────────┐
-│ Code Layer (Deterministic)                          │
-│ ✓ Enforces: mandatory security scans (0 critical)   │
-│ ✓ Validates: secrets in vault, not code             │
-│ ✓ Ensures: production approval workflows            │
-│ ✓ Guarantees: rollback procedures included          │
-└─────────────────────────────────────────────────────┘
-                         ▼
-      Production-Ready Pipeline: 15 Minutes
-```
-
-**The result:** Pipelines that *feel* custom-generated but are *provably* compliant.
-
-### Why This Is Fundamentally Different
-
-Skills aren't better templates or smarter chatbots. They're a **new platform engineering primitive** that:
-
-**For Developers:**
-- Natural language interaction ("create a payment service")
-- Organizational standards applied automatically
-- Zero platform team dependencies for standard workflows
-- Junior developers perform like mid-level from day one
-
-**For Platform Teams:**
-- Predictable, auditable outcomes
-- Security policies enforced deterministically
-- Compliance validated consistently
-- Support ticket volume reduced 50%+
-
-**For The Business:**
-- 84% reduction in time-to-production
-- 90% fewer standards violations
-- 30%+ improvement in developer satisfaction
-- Strategic moat as agentic workflows proliferate
-
-→ **[Technical architecture and patterns](02-ARCHITECTURE.md)** (20-min read)
+→ **[Technical details](02-ARCHITECTURE.md)** (20-min read)
 
 ---
 

@@ -6,23 +6,19 @@
 
 ## 🎯 What This Is
 
-A comprehensive vision, architecture, and implementation guide for platform engineering leaders building the next generation of Internal Developer Platforms (IDPs). This framework demonstrates how to embed organizational expertise directly into developer workflows using AI Skills, transforming how developers interact with platform capabilities.
+A comprehensive framework for platform engineering leaders building next-generation Internal Developer Platforms using AI Skills to embed organizational expertise directly into developer workflows.
 
 ## 💡 Core Insight
 
-**Traditional IDPs automate infrastructure but fail at knowledge transfer.**
-
-Current platforms excel at provisioning resources and running pipelines, but struggle to transfer the deep organizational context, coding standards, testing methodologies, and domain expertise that separates productive developers from struggling ones.
-
-**Skills-enabled IDPs embed organizational expertise directly into developer workflows through context-aware AI assistance.**
+Traditional IDPs automate infrastructure but fail at knowledge transfer. Skills-enabled IDPs solve this by embedding organizational context, standards, and domain expertise directly into AI-assisted workflows.
 
 ## 📊 Expected Outcomes
 
-- **80% reduction** in pipeline creation time (days → hours)
-- **70% faster** infrastructure provisioning with built-in compliance
-- **90% fewer** standards violations in code review
-- **60% faster** developer onboarding time
-- **50% reduction** in platform team support tickets
+- **80% reduction** in pipeline creation time
+- **70% faster** infrastructure provisioning
+- **90% fewer** standards violations
+- **60% faster** developer onboarding
+- **50% reduction** in platform team tickets
 
 ## 📚 Documentation
 
@@ -80,46 +76,16 @@ Current platforms excel at provisioning resources and running pipelines, but str
 
 **Start here if:** You're planning the rollout and adoption strategy
 
-## 🚀 Quick Start Guides
+## 🚀 Quick Start
 
-### For Executives
-1. Read [EXECUTIVE BRIEF](EXECUTIVE_BRIEF.md) - concise overview with ROI (10 min)
-2. Optionally read [VISION](01-VISION.md) for deeper context (15 min)
-3. Review success metrics in [IMPLEMENTATION GUIDE](04-IMPLEMENTATION-GUIDE.md)
-4. **Decision point:** Approve POC or request more information
+**Executives:** [EXECUTIVE BRIEF](EXECUTIVE_BRIEF.md) → 10-min overview with ROI  
+**Architects:** [VISION](01-VISION.md) → [ARCHITECTURE](02-ARCHITECTURE.md) → Assess feasibility  
+**Engineers:** [POC SYSTEM DESIGN](03-POC-SYSTEM-DESIGN.md) → Begin implementation  
+**Managers:** [IMPLEMENTATION GUIDE](04-IMPLEMENTATION-GUIDE.md) → Plan rollout
 
-### For Architects
-1. Read [VISION](01-VISION.md) - understand the problem space
-2. Study [ARCHITECTURE](02-ARCHITECTURE.md) - understand the solution
-3. Review [POC SYSTEM DESIGN](03-POC-SYSTEM-DESIGN.md) (high-level)
-4. **Decision point:** Assess feasibility and integration points
+## 🎨 Architecture Diagrams
 
-### For Platform Engineers
-1. Jump to [POC SYSTEM DESIGN](03-POC-SYSTEM-DESIGN.md)
-2. Review detailed requirements and architecture
-3. Explore [examples/](examples/) for reference implementations
-4. **Action:** Begin POC implementation
-
-### For Program Managers
-1. Read [VISION](01-VISION.md) - understand the business case
-2. Study [IMPLEMENTATION GUIDE](04-IMPLEMENTATION-GUIDE.md)
-3. Review timeline, resources, and success criteria
-4. **Action:** Plan program structure and milestones
-
-## 🎨 Visual Architecture
-
-### High-Level System Architecture
-![Architecture Overview](diagrams/01-high-level-architecture.md)
-
-### Skills Lifecycle
-![Skills Lifecycle](diagrams/02-skills-lifecycle.md)
-
-### Complete Diagram Library
-See [diagrams/](diagrams/) for all architecture diagrams including:
-- Component interactions and data flows
-- Migration phase timelines
-- GitOps distribution patterns
-- Developer workflow comparisons
+See [diagrams/](diagrams/) for complete visual architecture including system design, Skills lifecycle, data flows, and migration patterns.
 
 ## 🛠️ Technology Focus
 

@@ -8,29 +8,11 @@
 
 ## The Platform Engineering Inflection Point
 
-Software delivery velocity has become the defining competitive advantage in enterprise technology. Yet despite billions invested in DevOps tooling, platform engineering, and developer experience initiatives, most organizations still struggle with a fundamental paradox: **developers are drowning in complexity while platform teams can't scale fast enough to support them**.
+Despite billions invested in DevOps tooling, **developers spend 30-40% of their time on non-coding activities**—environment setup, pipeline creation, standards navigation.
 
-### The Numbers Tell a Stark Story
+**The Core Problem:** Traditional IDPs excel at infrastructure automation but fail at knowledge transfer. They've abstracted Kubernetes and standardized CI/CD, but can't encode and transfer organizational context, standards, and domain expertise that separates productive developers from struggling ones.
 
-Engineering teams spend an estimated **30-40% of their time on non-coding activities** like:
-- Environment setup and configuration
-- Deployment pipeline creation
-- Testing infrastructure navigation
-- Organizational standards interpretation
-
-Platform teams, meanwhile, face endless requests for custom workflows, organizational context, and specialized tooling that can't be adequately served by generic infrastructure abstractions alone.
-
-### This Isn't a Tooling Problem-It's a Knowledge Transfer Problem
-
-Traditional Internal Developer Platforms (IDPs) excel at infrastructure automation and self-service provisioning. They've successfully:
-- Abstracted Kubernetes complexity
-- Standardized CI/CD pipelines
-- Created golden paths for deployment
-- Automated resource provisioning
-
-But they fall short in one critical area: **encoding and transferring the deep organizational context, coding standards, testing methodologies, and domain expertise that separates productive developers from struggling ones**.
-
-Creating a self-service Golden Path represented by a front-end form on your developer portal delivered results on paper for some, but only alleviated a portion of the friction and mental load for developers. They still needed to become subject-matter experts in navigating organizational complexities that were outside the realm of the platform.
+Golden paths with complex forms only partially reduce friction—developers still need deep organizational knowledge to navigate platform complexities.
 
 ## What Are Claude Skills and Why Do They Matter?
 
@@ -194,71 +176,9 @@ As code is written, Claude applies your Coding Standards Skill:
 
 ## Real-World Transformation: Before and After
 
-### Scenario: Launching a New Microservice
+**See detailed scenario in [EXECUTIVE_BRIEF.md](EXECUTIVE_BRIEF.md#the-transformation-before-vs-after)** for complete before/after comparison.
 
-#### Before Skills-Enabled IDP
-
-**Day 1 (8 hours):**
-- Find infrastructure template (30 min)
-- Read wiki pages about standards (1 hour)
-- Customize template, make several mistakes (3 hours)
-- Submit for platform team review (30 min)
-- Platform team identifies 15 issues (async)
-- Fix issues after Slack conversation (2 hours)
-- Resubmit for review (30 min)
-
-**Day 2 (6 hours):**
-- Create basic CI/CD pipeline (1 hour)
-- Discover it's missing required security scans (30 min)
-- Find documentation on scans, add them (2 hours)
-- Pipeline fails due to incorrect configuration (30 min)
-- Get help from platform team (1 hour)
-- Add missing compliance gates after reading more docs (1 hour)
-
-**Day 3 (4 hours):**
-- Start writing application code (2 hours)
-- Realize tests are needed, search for patterns (30 min)
-- Write basic tests without mocking patterns (1 hour)
-- Tests fail in CI due to external dependencies (30 min)
-
-**Day 4 (3 hours):**
-- Get help from senior developer on test mocking (1 hour)
-- Rewrite tests with proper patterns (1.5 hours)
-- Create basic README, missing required sections (30 min)
-
-**Day 5 (2 hours):**
-- Code review identifies standards violations (async)
-- Fix standards issues (1 hour)
-- Update documentation to match requirements (1 hour)
-
-**Total Time:** 5 days, 23 hours
-**External Dependencies:** Platform team (3x), Senior developer (1x)
-**Defects:** 8-10 issues caught in review
-**Developer Frustration:** High
-
-#### After Skills-Enabled IDP
-
-**Day 1 (3 hours):**
-- Developer: "Create a new API service for customer data processing"
-- Claude (Infrastructure Skill): Generates complete, standards-compliant infrastructure code (15 min)
-- Claude (CI/CD Skill): Creates full pipeline with all required gates and scans (10 min)
-- Developer reviews and approves generated code (30 min)
-- Claude (Testing Skill): Sets up testing framework with mocking patterns (15 min)
-- Developer writes application logic with Claude's assistance (1.5 hours)
-- Claude (Code Standards Skill): Ensures code follows organizational patterns continuously
-- Claude (Documentation Skill): Generates complete README, API docs, and runbooks (20 min)
-
-**Total Time:** 3 hours
-**External Dependencies:** None (zero platform team interactions)
-**Defects:** 0-1 issues (caught pre-commit)
-**Developer Frustration:** Low (empowered and productive)
-
-### ROI Metrics
-
-- **Time savings:** 84% reduction in time to production-ready service
-- **Quality improvement:** 90% reduction in standards violations
-- **Team autonomy:** Zero dependencies on platform or senior developers
-- **Knowledge transfer:** New developers perform like seniors from day one
+**Summary:** 5 days → 3 hours (84% reduction), 8-10 defects → 0-1 defects, high frustration → high productivity, 3+ platform team dependencies → zero dependencies.
 
 ## The Competitive Advantage
 
